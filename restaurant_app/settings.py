@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer.apps.CustomerConfig',
+    'staff.apps.StaffConfig',
     'widget_tweaks'
 ]
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'restaurant_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['customer/templates'],
+        'DIRS': ['customer/templates', 'staff/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,5 +135,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'customer/static/'),
-    # os.path.join(BASE_DIR, 'staff/static/'),
+    os.path.join(BASE_DIR, 'staff/static/'),
 ]
