@@ -24,6 +24,142 @@
 
     {% endblock content %}
 
+
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content btn-rounded">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    {% comment %} <div class="row justify-content-center my-3">
+                        <img style="max-width:100px" src="https://about.pinterest.com/sites/all/themes/custom/pinterest/images/pinterest-footer-logo.png?e60023">
+                    </div> {% endcomment %}
+
+                        <h1>Welcome to My Restaurant</h1>
+
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-lg-8">
+                            <form action="{% url 'user.login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {% for hidden in login_form.hidden_fields %}
+                                        {{hidden}}
+                                    {% endfor %}
+
+                                    {% for field in login_form.visible_fields %}
+                                        {{field|add_class:'form-control form-control-lg input-rounded my-1'}}
+                                    {% endfor %}
+
+                                    <a href="#"  class="font-weight-bold btn text-dark btn-sm border-0 text-left w-100">Forgot your Password?</a>
+                                    <button type="submit" class="btn btn-danger btn-rounded w-100 mt-2">Continue</button>
+                                </div>
+
+                            <p class="font-weight-bold">Or</p> 
+
+                                <button type="button" class="btn btn-primary btn-rounded w-100 mt-2">
+                                    <i class="fa fa-facebook-square fa-1x mr-2" aria-hidden="true"></i>
+                                    Continue with Facebook  
+                                </button>
+                                <button type="button" class="btn btn-light btn-rounded w-100 mt-2">
+                                    <i class="fa fa-google fa-1x mr-2" aria-hidden="true"></i>
+                                    Continue with Google
+                                </button>
+
+                                <small>
+                                    By continuing, you agree to My Restaurant<a href="#" class="font-weight-bold text-dark">Terms of Service</a> and acknowledge you've read our<a href="#" class="font-weight-bold text-dark"> Privacy Policy</a>
+                                </small>
+                                <br>
+
+                                <hr class="bg-light">
+                                <small>
+                                    <a href="javascript:void(0)" id="openRegisterModal" class="font-weight-bold text-dark mt-4">Already a member?Log in</a><br>
+                                    <a href="#" class="font-weight-bold text-dark mt-2">New in our Restaurant?
+                                        Get started here!</a>
+                                </small>
+
+
+                            </form>
+                            <hr>
+                            <div class="row justify-content-center mt-4">
+                                <a href="#" class="btn btn-outline-dark border-0">Create a free Delicious Account with My Restaurant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content btn-rounded">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <div class="row justify-content-center my-3">
+                        <img style="max-width:100px" src="https://about.pinterest.com/sites/all/themes/custom/pinterest/images/pinterest-footer-logo.png?e60023">
+                    </div>
+
+                        <h1>Welcome to My Restaurant</h1>
+                        <h6>Find New ideas to smack on 😃</h6>
+
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-lg-8">
+                            <form id="registerForm">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {% for hidden in register_form.hidden_fields %}
+                                        {{hidden}}
+                                    {% endfor %}
+
+                                    {% for field in register_form.visible_fields %}
+                                        {{field|add_class:'form-control form-control-lg input-rounded my-1'}}
+                                    {% endfor %}
+
+                                    <button type="submit" class="btn btn-danger btn-rounded w-100 mt-2">Continue</button>
+                                </div>
+
+                            <p class="font-weight-bold">Or</p> 
+
+                                <button type="button" class="btn btn-primary btn-rounded w-100 mt-2">
+                                    <i class="fa fa-facebook-square fa-1x mr-2" aria-hidden="true"></i>
+                                    Continue with Facebook 
+                                </button>
+                                <button type="button" class="btn btn-light btn-rounded w-100 mt-2">
+                                    <i class="fa fa-google fa-1x mr-2" aria-hidden="true"></i>
+                                    Continue with Google
+                                </button>
+
+                                <small>
+                                    By continuing, you agree to Pinterest's<a href="#" class="font-weight-bold text-dark">Terms of Service</a> and acknowledge you've read our<a href="#" class="font-weight-bold text-dark"> Privacy Policy</a>
+                                </small>
+                                <br>
+
+                                <hr class="bg-light">
+                                <small>
+                                    <a href="javascript:void(0)" id="openLoginModal" class="font-weight-bold text-dark mt-4">Already a member?Log in</a><br>
+                                    <a href="#" class="font-weight-bold text-dark mt-2">Welcome to My Restaurant?
+                                        Get started here!</a>
+                                </small>
+
+
+                            </form>
+                            <hr>
+                            <div class="row justify-content-center mt-4">
+                                <a href="#" class="btn btn-outline-dark border-0">Create a free Delicious Account with My Restaurant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>

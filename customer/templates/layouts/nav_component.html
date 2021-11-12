@@ -1,22 +1,28 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-info font-weight-bold text-light font-weight-bold " href="{% url 'home' %}">My Restaurant</a>
-            {% comment %} <img class="rounded-circle" style="max-width:150px" src="https://st.depositphotos.com/1026166/3160/v/600/depositphotos_31605339-stock-illustration-restaurant-food-quality-badge.jpg"> {% endcomment %}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+ <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">My Restaurant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto font-weight-bold">
-            <li class="nav-item active">
-                <a class="nav-link mx-3 text-light" href="#">About <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mx-3 text-light" href="#">Reservation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mx-3 text-light" href="#">Menu</a>
-            </li>
-            <li class="nav-item">
-                <a class="btn btn-info btn-rounded mx-2 text-light" href="#">Contact US</a>
-            </li>
-                    
-</nav>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>  
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>  
+                <li class="nav-item">
+                    <a class="nav-link btn btn-rounded btn-info text-dark ml-2" href="#contact">Login</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link btn btn-rounded btn-info text-dark ml-2" href="#contact">Register</a>
+                </li> 
+            </ul>
+        </div>  
+    </nav>

@@ -7,6 +7,6 @@ from .views import *
 urlpatterns=[
     path('dashboard', dashboard, name='dashboard'),
     path('categories', CategoryList.as_view(), name="categories"),
-    path('category/create', CreateCategory.as_view(), name="create.category"),
-    path('category/update/<pk>', CategoryUpdate.as_view(), name="category.update"),
+    # path('category/create', CreateCategory.as_view(), name="create.category"),
+    # path('category/update/<pk>', CategoryUpdate.as_view(), name="category.update"),
 ]

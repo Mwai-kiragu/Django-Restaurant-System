@@ -22,8 +22,8 @@ class CategoryList(ListView):
     context_object_name = " Categories"
     template_name = 'categories.html'
     
-class CreateCategory(Createview):
-    model = Category
-    fields = ['name']
-    success_url= '/staff/categories'
-    template_name = 'categories.html'
+# class CreateCategory(Createview):
+#     model = Category
+#     fields = ['name']
+#     success_url= '/staff/categories'
+#     template_name = 'categories.html'
