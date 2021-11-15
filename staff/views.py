@@ -27,3 +27,35 @@ class CategoryList(ListView):
 #     fields = ['name']
 #     success_url= '/staff/categories'
 #     template_name = 'categories.html'
+
+def viewStaff(request):
+    context = {
+        'staff': Staff.objects.all()
+        
+    }
+    return render(request, 'staff.html', context)
+
+def staffDetails(request, id):
+    user= User.objects.get(pk = id)
+    context = {
+        'staff': Staff
+        
+    }
+    return render(request, 'staff_details.html', context)
+
+class staffDetails(DetailView):
+    model= User
+    template_name = 'staff_details.html'
+    context_object_name = "staff"
+
+class CreateStaff(CreateView):
+    model = Staff
+    fields = '__all__'
+    success_url = '/staff/staff'
+    template_name = 'staff_Details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create Staff"
+        return context
+

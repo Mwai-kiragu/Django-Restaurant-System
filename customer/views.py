@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, RandomForm
 from django.contrib.auth.models import User
+# from django.contrib.auth import authenticate, login, logout
 from .models import *
 # Create your views here.
 
@@ -54,10 +55,10 @@ def registerUser(request):
         form = RegisterForm(request.POST)
         
         if form.is_valid():
-            name= form.cleaned data['name']
-            age= form.cleaned data['age']
-            password= form.cleaned data['password']
-            email= form.cleaned data['email']
+            name= form.cleaned_data['name']
+            age= form.cleaned_data['age']
+            password= form.cleaned_data['password']
+            email= form.cleaned_data['email']
             
             user = User()
             user.username = name
@@ -67,7 +68,7 @@ def registerUser(request):
             user.save()
             
             login(request, user)
-            mail_message = "Hello, "+name" .Welcome to my Restaurant where you settle with your favorite dish."
+            mail_message = "Hello, "+name+" .Welcome to my Restaurant where you settle with your favorite dish."
             send_mail(
                 'Welcome to my Restaurant',
                 mail_message,

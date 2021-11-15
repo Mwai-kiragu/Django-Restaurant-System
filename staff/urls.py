@@ -9,4 +9,8 @@ urlpatterns=[
     path('categories', CategoryList.as_view(), name="categories"),
     # path('category/create', CreateCategory.as_view(), name="create.category"),
     # path('category/update/<pk>', CategoryUpdate.as_view(), name="category.update"),
+    path('staff', viewStaff, name='staff'),
+    path('staff/create', CreateStaff.as_view(), name="create.staff"),
+    path('staff/<id>', staffDetails, name="staff.details"),
+    
 ]
