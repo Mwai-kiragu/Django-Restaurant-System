@@ -17,9 +17,12 @@
 
     </head>
 <body>
-
-    {% include "layouts/nav_component.html"%}
-
+    {% if user.is_authenticated %}
+        {% include "staff_nav.html"%}
+    {% else %}
+        {% include "layouts/nav-component.html"%}
+    {% endif %}
+    
     {% block content %}
 
     {% endblock content %}

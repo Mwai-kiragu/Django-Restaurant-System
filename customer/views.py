@@ -2,15 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .forms import LoginForm, RegisterForm, RandomForm
 from django.contrib.auth.models import User
-# from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 # Create your views here.
 
 def home(request):
     context={
-        
+        "register_form": RegisterForm(),
+        "login_form" : LoginForm()
     }
     return render(request, 'home.html', context)
+
+    return HttpResponse("This is my page")
 
 def loginUser(request):
     
@@ -68,14 +71,14 @@ def registerUser(request):
             user.save()
             
             login(request, user)
-            mail_message = "Hello, "+name+" .Welcome to my Restaurant where you settle with your favorite dish."
-            send_mail(
-                'Welcome to my Restaurant',
-                mail_message,
-                "admin@gmail.com",
-                [email],
-                fail_silently= False    
-            )
+            # mail_message = "Hello, "+name+" .Welcome to my Restaurant where you settle with your favorite dish."
+            # send_mail(
+            #     'Welcome to my Restaurant',
+            #     mail_message,
+            #     "admin@gmail.com",
+            #     [email],
+            #     fail_silently= False    
+            # )
             
         # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         data = {'success': True, 'message':"Register Successful, Redirecting..."}
