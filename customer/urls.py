@@ -23,5 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.home, name="home"),
     path('user/login', views.loginUser, name="user.login"),
-    path('user/register', views.registerUser, name="register")
+    path('user/register', views.registerUser, name="register"),
+    path('categories', CategoryList.as_view(), name="categories"),
+    path('category/create', CreateCategory.as_view(), name="create.category"),
+    path('category/update/<pk>', CategoryUpdate.as_view(), name="category.update"),
 ]
