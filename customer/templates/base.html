@@ -18,9 +18,9 @@
     </head>
 <body>
     {% if user.is_authenticated %}
-        {% include "staff_nav.html"%}
+        {% include "layouts/staff_nav.html"%}
     {% else %}
-        {% include "layouts/nav-component.html"%}
+        {% include "layouts/nav_component.html"%}
     {% endif %}
     
     {% block content %}

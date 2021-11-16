@@ -27,30 +27,25 @@
                                 <th>address</th>
                                 <th>Department</th>
                                 <th>Working_hours</th>
-                                <th>Joined On</th>
+                                <th>Created_at</th>
                                 <th>Updated_at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for staff in staff %}
+                            {% for staff in staff_list %}
                                 <tr>
                                     <td>{{staff.id}}</td>
-                                    <td>{{staff.username}}</td>
-                                    <td>{{staff.email}}</td>
+                                    <td>{{staff.staff_number}}</td>
+                                    <td>{{staff.gender}}</td>
+                                    <td>{{staff.salary}}</td>
+                                    <td>{{staff.address}}</td>
+                                    <td>{{staff.department}}</td>
+                                    <td>{{staff.working_hours}}</td>
+                                    <td>{{staff.created_at}}</td>
+                                    <td>{{staff.updated_at}}</td>
                                     <td>
-                                        {% if staff.age is None%}
-                                            Oldie
-                                            <button  class="btn btn-dark btn-sm" data-email="{{staff.email}}" data-name="{{user.username}}" id="emailModalBtn" >
-                                                <i class="fa fa-envelope"></i>
-                                            </button>
-                                        {% else %}
-                                            {{staff.age}}
-                                        {% endif %}
-                                    </td>
-                                    <td>{{staff.date_joined}}</td>
-                                    <td>
-                                        <a href="{% url 'staff.details' staff.id %}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
                                         <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
