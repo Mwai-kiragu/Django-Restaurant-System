@@ -71,16 +71,16 @@ class CreateCategory(CreateView):
         context["title"] = "Create Category"
         return context
 
-class CategoryUpdate(UpdateView):
-    model = Category
-    fields = ['name']
-    success_url = '/staff/categories'
-    template_name = 'board_form.html'
+# class CategoryUpdate(UpdateView):
+#     model = Category
+#     fields = ['name']
+#     success_url = '/staff/categories'
+#     template_name = 'board_form.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["title"] = "Update Category"
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["title"] = "Update Category"
+#         return context
 
 class TableList(ListView):
     model = Table
