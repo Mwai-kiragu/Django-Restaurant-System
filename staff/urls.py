@@ -12,9 +12,10 @@ urlpatterns=[
     path('staff', StaffList.as_view(), name='staff'),
     path('staff/create', CreateStaff.as_view(), name="create.staff"),
     path('staff/<id>', staffDetails, name="staff.details"),
-    path('table/create', CreateCategory.as_view(), name = 'create.table'),
-    path('table', TableList.as_view(), name="table"),
-    path('category/update/<pk>', TableUpdate.as_view(), name="table.update"),
-    
+    path('table/create', CreateTable.as_view(), name = 'create.table'),
+    path('tables', TableList.as_view(), name="tables"),
+    # path('category/update/<pk>', TableUpdate.as_view(), name="table.update"),
+    path('reservations', ReservationList.as_view(), name="reservations"),
+    path('reservation/create', CreateReservation.as_view(), name= 'create.reservation'),
     
 ]

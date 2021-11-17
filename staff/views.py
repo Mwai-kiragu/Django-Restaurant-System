@@ -84,13 +84,13 @@ class CreateCategory(CreateView):
 
 class TableList(ListView):
     model = Table
-    context_object_name = "table"
-    template_name = "table.html"
+    context_object_name = "tables"
+    template_name = "tables.html"
     
 class CreateTable(CreateView):
     model = Table
-    fields = '__all__'
-    success_url = '/staff/table'
+    fields = ['table_number', 'is_taken']
+    success_url = '/staff/tables'
     template_name = 'board_form.html'
 
     def get_context_data(self, **kwargs):
@@ -98,13 +98,31 @@ class CreateTable(CreateView):
         context["title"] = "Create Table"
         return context
     
-class TableUpdate(UpdateView):
-    model = Table
-    fields = ['name']
-    success_url = '/staff/table'
-    template_name = 'board_form.html'
+# class TableUpdate(UpdateView):
+#     model = Table
+#     fields = ['name']
+#     success_url = '/staff/table'
+#     template_name = 'board_form.html'
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["title"] = "Update Table"
+#         return context
+
+class ReservationList(ListView):
+    model = Reservation
+    context_object_name = "reservations"
+    template_name = "reservations.html"
+    
+class CreateReservation(CreateView):
+    model = Reservation
+    fields = ['table', 'user', 'people', 'status']
+    template_name = "board_form.html"
+    success_url = '/staff/reservations'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Update Table"
+        context["title"] = "Create Reservation"
         return context
+    
+    

@@ -9,10 +9,10 @@
             <div class="card">
                 <div class="card-header bg-white">
                     <div class="row">
-                        <h5>Table</h5>
-                        <a href="{% url 'create.table' %}" class="btn btn-danger btn-sm ml-auto">
+                        <h5>Reservation</h5>
+                        <a href="{% url 'create.reservation' %}" class="btn btn-danger btn-sm ml-auto">
                             <i class="fa fa-table mr-2" aria-hidden="true"></i>
-                            Create Table
+                            Create Reservation
                         </a>
                     </div>
                 </div>
@@ -21,21 +21,29 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Table_Number</th>
-                                <th>is_taken</th>
-                                <th>created_at</th>
+                                <th>Table_number</th>
+                                <th>user</th>
+                                <th>time</th>
+                                <th>people</th>
+                                <th>status</th>
+                                <th>Created_at</th>
                                 <th>Updated_at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for table in tables %}
+                            {% for reservation in reservations %}
                                 <tr>
-                                    <td>{{table.id}}</td>
-                                    <td>{{table.unumber}}</td>
-                                    <td>{{table.is_joined}}</td>
+                                    <td>{{reservation.id}}</td>
+                                    <td>{{reservation.table_number}}</td>
+                                    <td>{{reservation.user}}</td>
+                                    <td>{{reservation.time}}</td>
+                                    <td>{{reservation.people}}</td>
+                                    <td>{{reservation.status}}</td>
+                                    <td>{{reservation.created_at}}</td>
+                                    <td>{{reservation.updated_at}}</td>
                                     <td>
-                                        <a href="{% url 'table.is_taken' table_number %}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
                                         <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -50,5 +58,3 @@
     </div>
 
 {% endblock content %}
-
-
