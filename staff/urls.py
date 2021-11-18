@@ -17,5 +17,9 @@ urlpatterns=[
     # path('category/update/<pk>', TableUpdate.as_view(), name="table.update"),
     path('reservations', ReservationList.as_view(), name="reservations"),
     path('reservation/create', CreateReservation.as_view(), name= 'create.reservation'),
+    path('orders', OrderList.as_view(), name="orders"),
+    path('order/create', CreateOrder.as_view(), name= 'create.order'),
+    path('menu', MenuList.as_view(), name = "menu"),
+    path('menu/creeate', CreateMenu.as_view(), name = 'create.menu'),
     
 ]

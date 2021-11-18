@@ -125,4 +125,37 @@ class CreateReservation(CreateView):
         context["title"] = "Create Reservation"
         return context
     
+class OrderList(ListView):
+    model = Order
+    context_object_name = "orders"
+    template_name = "orders.html"
+    
+class CreateOrder(CreateView):
+    model = Order
+    fields = ['order_number', 'status', 'user', 'cost', 'is_delivery', 'staff']
+    template_name = "board_form.html"
+    success_url = '/staff/orders'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create Order"
+        return context
+
+class MenuList(ListView):
+    model = Menu
+    context_object_name = "menu_list"
+    template_name = "menu.html"
+
+class CreateMenu(CreateView):
+    model =  Menu
+    fields = ['food_type', 'category', 'item', 'quantity']
+    template_name = "board_form.html"
+    success_url = '/staff/menu'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create Menu"
+        return context
+        
+    
     
