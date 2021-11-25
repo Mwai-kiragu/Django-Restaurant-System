@@ -18,11 +18,19 @@ from django.urls import path
 from customer import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from .views import *
 
 
 urlpatterns = [
     path('', views.home, name="home"),
     path('user/login', views.loginUser, name="user.login"),
     path('user/register', views.registerUser, name="register"),
+    
+    path('send/reset/email', password_reset_request, name="send_reset_email"),
+    
+   path('password_reset_sent/', auth_views.PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),
    
 ]

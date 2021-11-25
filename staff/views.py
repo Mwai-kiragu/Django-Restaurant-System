@@ -156,6 +156,52 @@ class CreateMenu(CreateView):
         context = super().get_context_data(**kwargs)
         context["title"] = "Create Menu"
         return context
-        
     
+class PaymentList(ListView):
+    model = Payments
+    context_object_name = "payment"
+    template_name = "payments.html"
     
+class UpdatePayment(UpdateView):
+    model = Payments
+    fields = ['status', 'user', 'order', 'payment_mode']
+    success_url = '/staff/payments'
+    template_name = "board_form.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Update Payment" 
+        return context
+    
+class DeliveryList(ListView):
+    model = Delivery
+    context_object_name = "deliveries"
+    template_name = "deliveries.html"
+    
+class CreateDelivery(CreateView):
+    model = Delivery
+    fields = ['location_group', 'delivery_fee']
+    success_url = '/staff/deliveries'
+    template_name = "board_form.html"      
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create Delivery"
+        return context
+    
+class ReviewList(ListView):
+    model = Review
+    context_object_name = "reviews"
+    template_name = "reviews.html"
+    
+class CreateReview(CreateView):
+    model = Review
+    fields = ['user', 'message', 'stars']
+    success_url = '/staff/reviews'
+    template_name = "board_form.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create Review"
+        return context
+     

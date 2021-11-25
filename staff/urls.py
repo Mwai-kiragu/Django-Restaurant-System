@@ -20,6 +20,11 @@ urlpatterns=[
     path('orders', OrderList.as_view(), name="orders"),
     path('order/create', CreateOrder.as_view(), name= 'create.order'),
     path('menu', MenuList.as_view(), name = "menu"),
-    path('menu/creeate', CreateMenu.as_view(), name = 'create.menu'),
-    
+    path('menu/create', CreateMenu.as_view(), name = 'create.menu'),
+    path('payments', PaymentList.as_view(), name="payments"),
+    path('payment/update/<pk>', UpdatePayment.as_view(), name="update.payment"),
+    path('deliveries', DeliveryList.as_view(), name="deliveries"),
+    path('delivery/create', CreateDelivery.as_view(), name= 'create.delivery'),
+    path('reviews', ReviewList.as_view(), name="reviews"),
+    path('review/create', CreateReview.as_view(), name= 'create.review'),
 ]

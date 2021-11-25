@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer.apps.CustomerConfig',
     'staff.apps.StaffConfig',
-    'widget_tweaks'
+    'widget_tweaks',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,8 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'customer/static/'),
     os.path.join(BASE_DIR, 'staff/static/'),
 ]
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'c213659ffba5c9'
+EMAIL_HOST_PASSWORD = '54744415f36668'
+EMAIL_PORT = '2525'
