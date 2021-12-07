@@ -162,7 +162,7 @@ class PaymentList(ListView):
     context_object_name = "payment"
     template_name = "payments.html"
     
-class UpdatePayment(UpdateView):
+class CreatePayment(CreateView):
     model = Payments
     fields = ['status', 'user', 'order', 'payment_mode']
     success_url = '/staff/payments'
@@ -170,7 +170,7 @@ class UpdatePayment(UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Update Payment" 
+        context["title"] = "Create Payment" 
         return context
     
 class DeliveryList(ListView):

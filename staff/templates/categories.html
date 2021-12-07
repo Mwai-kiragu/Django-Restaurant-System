@@ -37,7 +37,7 @@
                                 <td>{{category.updated_at}}</td>
                                 <td>    
                                     <a href="#" class="btn btn-dark btn-sm"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <a href="#" data-id="{{category.id}}" class="btn btn-danger btn-sm category-id"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -50,3 +50,15 @@
 </div>
 
 {% endblock content %}
+
+{% block 'scripts' %}
+
+$(document).ready(function(){
+    var category_id = $('.category-id').attr('data-id');
+
+    $('.category-id').click(function(){
+
+    });
+});
+
+{% endblock 'scripts' %}
