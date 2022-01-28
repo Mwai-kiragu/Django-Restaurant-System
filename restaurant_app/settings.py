@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer.apps.CustomerConfig',
     'staff.apps.StaffConfig',
+    'django_google_maps',
     'widget_tweaks',
     'crispy_forms'
 ]

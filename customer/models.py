@@ -9,6 +9,7 @@ class Staff(User):
         ('female', 'Female'),
         ('other', 'Other')
     )
+    # is_staff = models.BooleanField(default=True)   
     gender= models.CharField(max_length=25, choices=GENDER_OPTIONS)
     salary= models.IntegerField(null=True, blank=True)
     address= models.CharField(max_length=100)
